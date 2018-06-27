@@ -3,7 +3,7 @@ module Streak
     def self.get(params = {})
       res = Streak.request(:get, "/search?query=#{params[:email]}")
       obj = convert_to_streak_object(res, Contact)
-      extract_contact_from obj
+      extract_contacts_from obj
     end
 
     private
