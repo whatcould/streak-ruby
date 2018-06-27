@@ -1,20 +1,21 @@
 require 'rest_client'
 require 'multi_json'
 
-require "streak/version"
+require 'streak/version'
 
-require "streak/streak_error"
-require "streak/util"
+require 'streak/streak_error'
+require 'streak/util'
 
-require "streak/streak_object"
-require "streak/box"
-require "streak/field"
-require "streak/field_value"
-require "streak/pipeline"
-require "streak/stage"
-require "streak/user"
-require "streak/search"
-require "streak/file"
+require 'streak/streak_object'
+require 'streak/box'
+require 'streak/contact'
+require 'streak/field'
+require 'streak/field_value'
+require 'streak/pipeline'
+require 'streak/stage'
+require 'streak/user'
+require 'streak/search'
+require 'streak/file'
 
 module Streak
   @api_base = "https://www.streak.com/api/v1"
