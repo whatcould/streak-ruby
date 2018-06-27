@@ -38,6 +38,10 @@ Update the value of box field:
 
     Streak::FieldValue.update(box_key, field_key, :value => value)
 
+Lookup contact through email:
+
+    Streak::Contact.get(email: email)
+
 See the complete Streak API reference here: [http://www.streak.com/api/](http://www.streak.com/api/)
 
 This gem currently supports:
