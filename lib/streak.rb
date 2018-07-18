@@ -18,7 +18,8 @@ require 'streak/search'
 require 'streak/file'
 
 module Streak
-  @api_base = "https://www.streak.com/api/v1"
+  # @api_base = "https://www.streak.com/api/v1"
+  @api_base = "https://www.streak.com/api/v2"
 
   # @ssl_bundle_path  = File.dirname(__FILE__) + '/data/ca-certificates.crt'
   # @verify_ssl_certs = true
