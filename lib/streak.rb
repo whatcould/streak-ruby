@@ -18,8 +18,8 @@ require 'streak/search'
 require 'streak/file'
 
 module Streak
-  # @api_base = "https://www.streak.com/api/v1"
-  @api_base = "https://www.streak.com/api/v2"
+  @api_base = "https://www.streak.com/api/v1"
+  @api_base_v2 = "https://www.streak.com/api/v2"
 
   # @ssl_bundle_path  = File.dirname(__FILE__) + '/data/ca-certificates.crt'
   # @verify_ssl_certs = true
@@ -33,7 +33,19 @@ module Streak
     @api_base + url
   end
 
+  def self.api_url_v2(url='')
+    @api_base_v2 + url
+  end
+
   def self.request(method, url, params = {}, headers = {})
+    versioned_request(method, url, nil, params = {}, headers = {})
+  end
+
+  def self.request_v2(method, url, params = {}, headers = {})
+    versioned_request(method, url, 'v2', params = {}, headers = {})
+  end
+
+  def self.versioned_request(method, url, api_version, params = {}, headers = {})
     http_method = method.to_s.downcase.to_sym
     case http_method
     when :get, :head, :delete
@@ -52,7 +64,7 @@ module Streak
       :headers => headers,
       :method => method,
       :verify_ssl => false,
-      :url  => api_url(url),
+      :url  => api_version == "v2" ? api_url_v2(url) : api_url(url),
       :user => api_key,
       :payload => payload
     }
