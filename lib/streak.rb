@@ -39,11 +39,11 @@ module Streak
   end
 
   def self.request(method, url, params = {}, headers = {})
-    versioned_request(method, url, nil, params = {}, headers = {})
+    versioned_request(method, url, nil, params, headers)
   end
 
   def self.request_v2(method, url, params = {}, headers = {})
-    versioned_request(method, url, 'v2', params = {}, headers = {})
+    versioned_request(method, url, 'v2', params, headers)
   end
 
   def self.versioned_request(method, url, api_version, params = {}, headers = {})
