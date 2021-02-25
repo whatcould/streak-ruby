@@ -2,7 +2,7 @@ module Streak
   class Stage < StreakObject
     def self.all(pipeline_key)
       res = Streak.request(:get, "/pipelines/#{pipeline_key}/stages")
-      convert_to_streak_object(res, Stage)
+      convert_to_streak_object(res.values, Stage)
     end
 
     def self.find(pipeline_key, stage_key)
