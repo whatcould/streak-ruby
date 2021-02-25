@@ -12,12 +12,12 @@ module Streak
     end
 
     def self.create(pipeline_key, params={})
-      res = Streak.request(:put, "/pipelines/#{pipeline_key}/boxes", params)
+      res = Streak.request_v2(:post, "/pipelines/#{pipeline_key}/boxes", MultiJson.dump(params))
       convert_to_streak_object(res, Box)
     end
 
     def self.update(key, params)
-      res = Streak.request(:post, "/boxes/#{key}", MultiJson.dump(params))
+      res = Streak.request_v2(:put, "/boxes/#{key}", MultiJson.dump(params))
       convert_to_streak_object(res, Box)
     end
   end
