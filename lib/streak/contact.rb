@@ -21,6 +21,10 @@ module Streak
       obj = convert_to_streak_object(res, Contact)
     end
 
+    def self.delete(contact_key)
+      res = Streak.request_v2(:delete, "/contacts/#{contact_key}")
+    end
+
     private
 
       def self.extract_contacts_from(obj)
